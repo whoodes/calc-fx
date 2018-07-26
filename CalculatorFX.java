@@ -20,7 +20,7 @@ import javafx.stage.Stage;
  * Core concept: ability to handle a javafx event
  * Date: 3/15/18
  */
-public class Assignment11 extends Application {
+public class CalculatorFX extends Application {
 	
 	//Global value from the firstField, result to be displayed, and numerical operator.
 	double firstValue;
