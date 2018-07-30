@@ -22,24 +22,25 @@ import javafx.stage.Stage;
  */
 public class CalculatorFX extends Application {
 	
-	//Global value from the firstField, result to be displayed, and numerical operator.
-	double firstValue;
-	double displayableResult;
-	String operator;
+	//Global value from the firstField and secondField, result to be displayed, and numerical operator.
+	private double firstValue;
+	private double secondValue;
+	private double displayableResult;
+	private String operator;
 	
 	//Global TextFields to hold the users input values.
-	TextField firstField = new TextField();
-	TextField secondField = new TextField();
+	private TextField firstField = new TextField();
+	private TextField secondField = new TextField();
 	
 	//Global empty label designated to hold displayableResult.
-	Label result = new Label("");
+	private Label result = new Label("");
 	
 	//Global operator buttons.
-	Button add = new Button("+");
-	Button subtract = new Button("-");
-	Button multiply = new Button("*");
-	Button divide = new Button("/");
-	Button equals = new Button("=");
+	private Button add = new Button("+");
+	private Button subtract = new Button("-");
+	private Button multiply = new Button("*");
+	private Button divide = new Button("/");
+	private Button equals = new Button("=");
 	
 	//Setting the stage.
 	public void start(Stage stage) {
@@ -79,6 +80,7 @@ public class CalculatorFX extends Application {
 		Button[] buttons = {add, subtract, multiply, divide};
 		
 		for(Button button : buttons) {
+
 			button.setStyle("-fx-padding: 15px 25px; -fx-background-radius: 20; -fx-background-color: white;"
 					+ "-fx-border-color: white; -fx-border-radius: 20;");
 			operatorBox.getChildren().add(button);
@@ -173,6 +175,7 @@ public class CalculatorFX extends Application {
 				
 				//Capture the value in the second textField
 				double secondNumber = Double.parseDouble(secondField.getText());
+				secondValue = secondNumber;
 				
 				//If the first field is empty throw an exception.
 				if(firstField.getText().isEmpty())
@@ -180,13 +183,13 @@ public class CalculatorFX extends Application {
 				
 				//Perform operation based on operator string value.
 				if(operator == "add") {
-					displayableResult = firstValue + secondNumber;
+					displayableResult = firstValue + secondValue;
 				}else if(operator == "sub") {
-					displayableResult = firstValue - secondNumber;
+					displayableResult = firstValue - secondValue;
 				}else if(operator == "multiply") {
-					displayableResult = firstValue * secondNumber;
+					displayableResult = firstValue * secondValue;
 				}else if(operator == "div") {
-					displayableResult = firstValue / secondNumber;
+					displayableResult = firstValue / secondValue;
 				}
 				
 				//Display the result.
